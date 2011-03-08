@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "TISwipeableTableView.h"
 
 @implementation RootViewController
 

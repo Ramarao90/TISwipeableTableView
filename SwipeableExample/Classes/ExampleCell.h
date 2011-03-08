@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TISwipeableTableView.h"
+#import "TISwipeableTableViewCell.h"
 
 @interface ExampleCell : TISwipeableTableViewCell {
 	

@@ -28,16 +28,11 @@
 
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "TISwipeableTableViewDelegate.h"
 
 //==========================================================
 // - TISwipeableTableView
 //==========================================================
-
-@protocol TISwipeableTableViewDelegate <NSObject>
-@optional
-- (BOOL)tableView:(UITableView *)tableView shouldSwipeCellAtIndexPath:(NSIndexPath *)indexPath; // Thanks to Martin Destagnol (@mdestagnol) for this delegate method.
-- (void)tableView:(UITableView *)tableView didSwipeCellAtIndexPath:(NSIndexPath *)indexPath;
-@end
 
 @interface TISwipeableTableView : UITableView {
 
@@ -51,46 +46,5 @@
 @property (nonatomic, retain) NSIndexPath * indexOfVisibleBackView;
 
 - (void)hideVisibleBackView:(BOOL)animated;
-
-@end
-
-//==========================================================
-// - TISwipeableTableViewCell
-//==========================================================
-
-@interface TISwipeableTableViewCellView : UIView
-@end
-
-@interface TISwipeableTableViewCellBackView : UIView
-@end
-
-@interface TISwipeableTableViewCell : UITableViewCell {
-
-	UIView * contentView;
-	UIView * backView;
-	
-	BOOL contentViewMoving;
-	BOOL selected;
-	BOOL shouldSupportSwiping;
-	BOOL shouldBounce;
-}
-
-@property (nonatomic, readonly) UIView * backView;
-@property (nonatomic, assign) BOOL contentViewMoving;
-@property (nonatomic, getter=isSelected) BOOL selected;
-@property (nonatomic, assign) BOOL shouldSupportSwiping;
-@property (nonatomic, assign) BOOL shouldBounce;
-
-- (void)drawContentView:(CGRect)rect;
-- (void)drawBackView:(CGRect)rect;
-
-- (void)backViewWillAppear;
-- (void)backViewDidAppear;
-- (void)backViewWillDisappear;
-- (void)backViewDidDisappear;
-
-- (void)revealBackView;
-- (void)hideBackView;
-- (void)resetViews;
 
 @end

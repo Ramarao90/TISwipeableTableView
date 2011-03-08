@@ -42,7 +42,9 @@
 }
 
 - (void)drawContentView:(CGRect)rect {
-	
+	CGContextRef c = UIGraphicsGetCurrentContext();
+	CGContextSetFillColorWithColor(c, [UIColor whiteColor].CGColor);
+	CGContextFillRect(c, rect);
 	UIColor * textColour = [UIColor blackColor];
 	
 	if (self.selected) {
